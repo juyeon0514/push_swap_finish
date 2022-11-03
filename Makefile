@@ -20,7 +20,7 @@ FILES = push_swap_main				\
 		push_swap_sort				\
 		push_swap_sort3_a			\
 		push_swap_sort3_b			\
-		push_swap_sort_5			\
+		push_swap_sort5				\
 		push_swap_sort_utils		\
 
 SRCS = $(addsuffix .c, $(FILES))
