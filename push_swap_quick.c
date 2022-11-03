@@ -6,7 +6,7 @@
 /*   By: juykang <juykang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 21:45:13 by juykang           #+#    #+#             */
-/*   Updated: 2022/11/03 11:08:37 by juykang          ###   ########seoul.kr  */
+/*   Updated: 2022/11/03 12:09:05 by juykang          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ void	back_use_rb_a(t_info *info, t_command_info *info2)
 
 void	ft_a_to_b(t_info *info, int size)
 {
-	int				check;
 	int				*arr;
+	int				rotate;
 	t_command_info	command;
 
 	info->count++;
@@ -105,11 +105,11 @@ void	ft_a_to_b(t_info *info, int size)
 		return ;
 	}
 	arr = make_stack_to_array(info, size, 1);
-	init_info_command(&command);
+	info_command_init(&command);
 	command.big_pivot = get_big_pivot(info, size, 1, arr);
 	command.small_pivot = get_small_pivot(info, size, 1, arr);
-	check = size;
-	while (check--)
+	rotate = size;
+	while (rotate--)
 		rotate_a(info, &command);
 	if (command.ra > command.rb)
 		back_use_ra_a(info, &command);

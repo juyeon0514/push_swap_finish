@@ -6,18 +6,34 @@
 /*   By: juykang <juykang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:17:20 by juykang           #+#    #+#             */
-/*   Updated: 2022/11/03 02:30:17 by juykang          ###   ########seoul.kr  */
+/*   Updated: 2022/11/03 11:51:06 by juykang          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_mid2_value(t_info *info, int size, int flag)
+int	get_mid2_data(t_info *info, int size, int flag)
 {
 	int		*arr;
 
 	arr = make_stack_to_array(info, size, flag);
 	return (arr[1]);
+}
+
+void	ft_sort_2(t_info *info, int flag)
+{
+	if (flag == 1)
+	{
+		if (info->top_a->data > info->top_a->next->data)
+			sa(info);
+	}
+	else
+	{
+		if (info->top_b->data < info->top_b->next->data)
+			sb(info);
+		pa(info);
+		pa(info);
+	}
 }
 
 void	ft_sort_4(t_info *info, int size)
@@ -28,7 +44,7 @@ void	ft_sort_4(t_info *info, int size)
 
 	push = 0;
 	rotate = 0;
-	mid = get_mid2_value(info, 4, 1);
+	mid = get_mid2_data(info, 4, 1);
 	while (size--)
 	{
 		if (info->top_a->data < mid)
@@ -46,22 +62,6 @@ void	ft_sort_4(t_info *info, int size)
 	}
 	while (rotate--)
 		rrb(info);
-}
-
-void	ft_sort_2(t_info *info, int flag)
-{
-	if (flag == 1)
-	{
-		if (info->top_a->data > info->top_a->next->data)
-			sa(info);
-	}
-	else
-	{
-		if (info->top_b->data < info->top_b->next->data)
-			sb(info);
-		pa(info);
-		pa(info);
-	}
 }
 
 void	ft_sort(t_info *info)

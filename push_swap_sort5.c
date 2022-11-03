@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_sort_5.c                                 :+:      :+:    :+:   */
+/*   push_swap_sort5.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juykang <juykang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 09:39:02 by juykang           #+#    #+#             */
-/*   Updated: 2022/11/02 23:08:18 by juykang          ###   ########seoul.kr  */
+/*   Updated: 2022/11/03 11:50:37 by juykang          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_mid_value(t_info *info, int size, int flag)
+int	get_mid_data(t_info *info, int size, int flag)
 {
 	int		*arr;
 
@@ -28,7 +28,7 @@ void	ft_sort_5_a(t_info *info, int size)
 
 	push = 0;
 	rotate = 0;
-	mid = get_mid_value(info, 5, 1);
+	mid = get_mid_data(info, 5, 1);
 	while (size--)
 	{
 		if (info->top_a->data < mid)
@@ -56,7 +56,7 @@ void	ft_sort_5_b(t_info *info, int size)
 
 	push = 0;
 	rotate = 0;
-	mid = get_mid_value(info, 5, 2);
+	mid = get_mid_data(info, 5, 2);
 	while (size--)
 	{
 		if (info->top_b->data >= mid)

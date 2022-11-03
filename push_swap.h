@@ -6,15 +6,12 @@
 /*   By: juykang <juykang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 20:35:31 by juykang           #+#    #+#             */
-/*   Updated: 2022/11/03 01:19:00 by juykang          ###   ########seoul.kr  */
+/*   Updated: 2022/11/03 12:09:05 by juykang          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# define MAX_DEQUE_SIZE 1024
-# define TRUE 1
-# define FALSE 0
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -50,7 +47,7 @@ typedef struct s_command_info
 }	t_command_info;
 
 int				ft_error(int flag);
-t_node			*make_stack_new(void);
+t_node			*stack_init(void);
 t_info			*ft_info_new(void);
 int				main(int argc, char **argv);
 char			**ft_split(char const *s, char c);
@@ -79,15 +76,15 @@ void			back_use_rb_a(t_info *info, t_command_info *info2);
 void			back_use_ra_a(t_info *info, t_command_info *info2);
 void			back_use_rb_b(t_info *info, t_command_info *info2);
 void			back_use_ra_b(t_info *info, t_command_info *info2);
-void			init_info_command(t_command_info *info2);
+void			info_command_init(t_command_info *info2);
 void			ft_sort_2(t_info *info, int flag);
-void			init_info_command(t_command_info *info2);
+void			info_command_init(t_command_info *info2);
 void			ft_sort_5(t_info *info);
 void			switch_sort_5(t_info *info, int size, int flag);
 void			ft_sort_small_a(t_info *info, int size);
 void			ft_sort_5_a(t_info *info, int size);
 void			ft_sort_5_b(t_info *info, int size);
-int				get_mid_value(t_info *info, int size, int flag);
+int				get_mid_data(t_info *info, int size, int flag);
 int				ft_max(int a, int b);
 void			ft_sort_3_b(t_info *info);
 void			ft_sort3_top_min_b(t_info *info, int mid, int bot);

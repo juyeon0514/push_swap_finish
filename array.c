@@ -6,7 +6,7 @@
 /*   By: juykang <juykang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 15:26:01 by juykang           #+#    #+#             */
-/*   Updated: 2022/11/03 11:10:02 by juykang          ###   ########seoul.kr  */
+/*   Updated: 2022/11/03 11:46:46 by juykang          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	make_arr_to_stack(t_info *info, int *array, int size)
 	index = 0;
 	while (index < size)
 	{
-		new_node = make_stack_new();
+		new_node = stack_init();
 		info->size_a++;
 		info->bottom_a->data = array[index];
 		info->bottom_a->next = new_node;

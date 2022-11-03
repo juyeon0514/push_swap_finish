@@ -6,7 +6,7 @@
 /*   By: juykang <juykang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 21:12:29 by juykang           #+#    #+#             */
-/*   Updated: 2022/11/02 23:00:48 by juykang          ###   ########seoul.kr  */
+/*   Updated: 2022/11/03 11:57:59 by juykang          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_error(int flag)
 	return (-1);
 }
 
-t_node	*make_stack_new(void)
+t_node	*stack_init(void)
 {
 	t_node	*new_node;
 
@@ -33,20 +33,20 @@ t_node	*make_stack_new(void)
 	return (new_node);
 }
 
-t_info	*ft_info_new(void)
+t_info	*ft_info_init(void)
 {
 	t_node		*stack_a;
 	t_info		*new_info;
 
 	new_info = NULL;
 	new_info = (t_info *)malloc(sizeof(t_info));
-	stack_a = make_stack_new();
+	stack_a = stack_init();
 	new_info->array = NULL;
 	new_info->size_a = 0;
-	new_info->top_a = stack_a;
-	new_info->bottom_a = stack_a;
 	new_info->size_b = 0;
 	new_info->count = 0;
+	new_info->top_a = stack_a;
+	new_info->bottom_a = stack_a;
 	return (new_info);
 }
 
@@ -57,9 +57,9 @@ int	main(int argc, char **argv)
 	t_info		*info;
 
 	if (argc < 2)
-		ft_error(1);
+		ft_error(-1);
 	array_size = 0;
-	info = ft_info_new();
+	info = ft_info_init();
 	array_size = check_str_size(argc, argv);
 	num_array = make_av_to_array(argc, argv, array_size);
 	make_arr_to_stack(info, num_array, array_size);
