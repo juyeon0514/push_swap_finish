@@ -6,13 +6,13 @@
 /*   By: juykang <juykang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 21:45:13 by juykang           #+#    #+#             */
-/*   Updated: 2022/11/03 12:09:05 by juykang          ###   ########seoul.kr  */
+/*   Updated: 2022/11/04 17:06:05 by juykang          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort_small_a(t_info *info, int size)
+static void	ft_sort_small_a(t_info *info, int size)
 {
 	if (size == 1)
 		return ;
@@ -30,7 +30,7 @@ void	ft_sort_small_a(t_info *info, int size)
 	}
 }
 
-void	rotate_a(t_info *info, t_command_info *info2)
+static void	rotate_a(t_info *info, t_command_info *info2)
 {
 	if (info->top_a->data > info2->big_pivot)
 	{
@@ -70,7 +70,7 @@ void	back_use_ra_a(t_info *info, t_command_info *info2)
 	}
 }
 
-void	back_use_rb_a(t_info *info, t_command_info *info2)
+static void	back_use_rb_a(t_info *info, t_command_info *info2)
 {
 	int	rrr_count;
 	int	tmp;
@@ -108,6 +108,7 @@ void	ft_a_to_b(t_info *info, int size)
 	info_command_init(&command);
 	command.big_pivot = get_big_pivot(info, size, 1, arr);
 	command.small_pivot = get_small_pivot(info, size, 1, arr);
+	free(arr);
 	rotate = size;
 	while (rotate--)
 		rotate_a(info, &command);

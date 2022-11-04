@@ -6,13 +6,13 @@
 /*   By: juykang <juykang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:18:08 by juykang           #+#    #+#             */
-/*   Updated: 2022/11/02 23:07:22 by juykang          ###   ########seoul.kr  */
+/*   Updated: 2022/11/04 17:05:09 by juykang          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort3_top_min_b(t_info *info, int mid, int bot)
+static void	ft_sort3_top_min_b(t_info *info, int mid, int bot)
 {
 	int	max;
 
@@ -34,7 +34,7 @@ void	ft_sort3_top_min_b(t_info *info, int mid, int bot)
 	}
 }
 
-void	ft_sort3_mid_min_b(t_info *info, int top, int bot)
+static void	ft_sort3_mid_min_b(t_info *info, int top, int bot)
 {
 	int			max;
 
@@ -55,7 +55,7 @@ void	ft_sort3_mid_min_b(t_info *info, int top, int bot)
 	}
 }
 
-void	ft_sort3_bot_min_b(t_info *info)
+static void	ft_sort3_bot_min_b(t_info *info)
 {
 	sb(info);
 }

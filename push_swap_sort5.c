@@ -6,29 +6,21 @@
 /*   By: juykang <juykang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 09:39:02 by juykang           #+#    #+#             */
-/*   Updated: 2022/11/03 11:50:37 by juykang          ###   ########seoul.kr  */
+/*   Updated: 2022/11/04 17:04:35 by juykang          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_mid_data(t_info *info, int size, int flag)
+void	ft_sort_5_a(t_info *info, int size, int *arr)
 {
-	int		*arr;
-
-	arr = make_stack_to_array(info, size, flag);
-	return (arr[2]);
-}
-
-void	ft_sort_5_a(t_info *info, int size)
-{
-	int	mid;
-	int	push;
-	int	rotate;
+	int			push;
+	int			rotate;
+	int			mid;
 
 	push = 0;
 	rotate = 0;
-	mid = get_mid_data(info, 5, 1);
+	mid = arr[2];
 	while (size--)
 	{
 		if (info->top_a->data < mid)
@@ -48,15 +40,15 @@ void	ft_sort_5_a(t_info *info, int size)
 		rra(info);
 }
 
-void	ft_sort_5_b(t_info *info, int size)
+void	ft_sort_5_b(t_info *info, int size, int *arr)
 {
-	int	mid;
-	int	push;
-	int	rotate;
+	int			push;
+	int			rotate;
+	int			mid;
 
 	push = 0;
 	rotate = 0;
-	mid = get_mid_data(info, 5, 2);
+	mid = arr[2];
 	while (size--)
 	{
 		if (info->top_b->data >= mid)
@@ -78,12 +70,16 @@ void	ft_sort_5_b(t_info *info, int size)
 
 void	switch_sort_5(t_info *info, int size, int flag)
 {
+	int	*arr;
+
+	arr = make_stack_to_array(info, size, flag);
 	if (flag == 1)
-		ft_sort_5_a(info, size);
+		ft_sort_5_a(info, size, arr);
 	else
-		ft_sort_5_b(info, size);
+		ft_sort_5_b(info, size, arr);
 	ft_sort_3_a(info);
 	ft_sort_2(info, 2);
+	free(arr);
 }
 
 void	ft_sort_5(t_info *info)

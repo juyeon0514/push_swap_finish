@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array.c                                            :+:      :+:    :+:   */
+/*   array_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juykang <juykang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 13:48:26 by juykang           #+#    #+#             */
-/*   Updated: 2022/11/03 13:48:36 by juykang          ###   ########seoul.kr  */
+/*   Updated: 2022/11/04 20:49:23 by juykang          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@ int	ft_atoi_ps(const char *str)
 	i = 0;
 	num = 0;
 	sign = 1;
+	if (!check_arg(str))
+		ft_error(-1);
 	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
 		i++;
 	if (str[i] == '-')
 		sign *= -1;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
-	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
+	while (str[i] && ft_isdigit(str[i]))
 	{
 		num = num * 10 + (str[i] - 48);
 		i++;

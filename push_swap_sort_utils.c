@@ -6,7 +6,7 @@
 /*   By: juykang <juykang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 13:14:56 by juykang           #+#    #+#             */
-/*   Updated: 2022/11/03 12:08:20 by juykang          ###   ########seoul.kr  */
+/*   Updated: 2022/11/04 21:33:08 by juykang          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	*make_stack_to_array(t_info *info, int size, int flag)
 		stack_array[index] = tmp->data;
 		tmp = tmp->next;
 	}
-	array_sort(stack_array, size, 0, info);
+	array_sort(stack_array, size, 0);
 	info->array = stack_array;
 	return (stack_array);
 }

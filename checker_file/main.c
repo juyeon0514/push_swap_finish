@@ -6,7 +6,7 @@
 /*   By: juykang <juykang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 13:49:00 by juykang           #+#    #+#             */
-/*   Updated: 2022/11/03 13:49:07 by juykang          ###   ########seoul.kr  */
+/*   Updated: 2022/11/04 22:02:41 by juykang          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ t_node	*stack_init(void)
 	t_node	*new_node;
 
 	new_node = (t_node *)malloc(sizeof(t_node));
+	if (!new_node)
+		ft_error(-1);
 	new_node->data = 0;
 	new_node->prev = NULL;
 	new_node->next = NULL;
@@ -42,6 +44,8 @@ t_info	*ft_info_init(void)
 
 	new_info = NULL;
 	new_info = (t_info *)malloc(sizeof(t_info));
+	if (!new_info)
+		ft_error(-1);
 	stack_a = stack_init();
 	new_info->array = NULL;
 	new_info->size_a = 0;
@@ -65,7 +69,7 @@ int	main(int argc, char **argv)
 	array_size = check_str_size(argc, argv);
 	num_array = make_av_to_array(argc, argv, array_size);
 	make_arr_to_stack(info, num_array, array_size);
-	array_sort(num_array, array_size, 0, info);
+	array_sort(num_array, array_size, 0);
 	info->array = num_array;
 	ft_sort(info);
 	return (0);

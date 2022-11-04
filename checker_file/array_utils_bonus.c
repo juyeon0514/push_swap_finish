@@ -6,7 +6,7 @@
 /*   By: juykang <juykang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 13:50:03 by juykang           #+#    #+#             */
-/*   Updated: 2022/11/03 13:50:12 by juykang          ###   ########seoul.kr  */
+/*   Updated: 2022/11/04 20:48:44 by juykang          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,47 @@ void	make_str_to_array(int *array, int *arr_idx, char **str)
 		(*arr_idx)++;
 		index++;
 	}
+}
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
+}
+
+int	check_arg(const char *str)
+{
+	int	index;
+	int	len;
+
+	index = 0;
+	len = 0;
+	if (str[index] == '-' || str[index] == '+')
+	{
+		index++;
+		len--;
+	}
+	if (str[index] == '0')
+	{
+		len++;
+		index++;
+	}
+	while (str[index] == '0')
+		index++;
+	while (str[index])
+	{
+		if (!ft_isdigit(str[index]))
+			return (0);
+		index++;
+		len++;
+	}
+	if (len < 0 || len > 11)
+		return (0);
+	return (1);
 }

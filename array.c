@@ -6,7 +6,7 @@
 /*   By: juykang <juykang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 15:26:01 by juykang           #+#    #+#             */
-/*   Updated: 2022/11/03 11:46:46 by juykang          ###   ########seoul.kr  */
+/*   Updated: 2022/11/04 21:31:54 by juykang          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@ int	ft_atoi_ps(const char *str)
 	i = 0;
 	num = 0;
 	sign = 1;
+	if (!check_arg(str))
+		ft_error(-1);
 	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
 		i++;
 	if (str[i] == '-')
 		sign *= -1;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
-	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
+	while (str[i] && ft_isdigit(str[i]))
 	{
 		num = num * 10 + (str[i] - 48);
 		i++;
@@ -111,13 +113,11 @@ void	make_arr_to_stack(t_info *info, int *array, int size)
 	free(new_node);
 }
 
-void	array_sort(int *array, int size, int index, t_info *info)
+void	array_sort(int *array, int size, int index)
 {
 	int	j;
-	int	check;
 	int	tmp;
 
-	check = 0;
 	while (index < size - 1)
 	{
 		j = 0;
@@ -128,7 +128,6 @@ void	array_sort(int *array, int size, int index, t_info *info)
 				tmp = array[j];
 				array[j] = array[j + 1];
 				array[j + 1] = tmp;
-				check++;
 			}
 			j++;
 		}
@@ -136,6 +135,4 @@ void	array_sort(int *array, int size, int index, t_info *info)
 			ft_error(-1);
 		index++;
 	}
-	if (check == 0 && info->count == 0)
-		ft_error(0);
 }

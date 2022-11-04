@@ -6,13 +6,13 @@
 /*   By: juykang <juykang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 09:07:14 by juykang           #+#    #+#             */
-/*   Updated: 2022/11/03 12:09:05 by juykang          ###   ########seoul.kr  */
+/*   Updated: 2022/11/04 17:05:45 by juykang          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_small_sort_b(t_info *info, int size)
+static void	ft_small_sort_b(t_info *info, int size)
 {
 	if (size == 1)
 		pa(info);
@@ -30,7 +30,7 @@ void	ft_small_sort_b(t_info *info, int size)
 	}
 }
 
-void	rotate_b(t_info *info, t_command_info *info2)
+static void	rotate_b(t_info *info, t_command_info *info2)
 {
 	if (info->top_b->data <= info2->small_pivot)
 	{
@@ -49,7 +49,7 @@ void	rotate_b(t_info *info, t_command_info *info2)
 	}
 }
 
-void	back_use_ra_b(t_info *info, t_command_info *info2)
+static void	back_use_ra_b(t_info *info, t_command_info *info2)
 {
 	int	rrr_count;
 	int	tmp;
@@ -62,7 +62,7 @@ void	back_use_ra_b(t_info *info, t_command_info *info2)
 		rra(info);
 }
 
-void	back_use_rb_b(t_info *info, t_command_info *info2)
+static void	back_use_rb_b(t_info *info, t_command_info *info2)
 {
 	int	rrr_count;
 	int	tmp;
@@ -91,6 +91,7 @@ void	ft_b_to_a(t_info *info, int size)
 	info_command_init(&command);
 	command.big_pivot = get_big_pivot(info, size, 2, arr2);
 	command.small_pivot = get_small_pivot(info, size, 2, arr2);
+	free(arr2);
 	rotate = size;
 	while (rotate--)
 		rotate_b(info, &command);
