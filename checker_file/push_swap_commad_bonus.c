@@ -6,11 +6,11 @@
 /*   By: juykang <juykang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:01:58 by juykang           #+#    #+#             */
-/*   Updated: 2022/11/03 15:04:20 by juykang          ###   ########seoul.kr  */
+/*   Updated: 2022/11/05 14:37:29 by juykang          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	sa(t_info *info)
 {

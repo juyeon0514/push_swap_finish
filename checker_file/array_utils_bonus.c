@@ -6,7 +6,7 @@
 /*   By: juykang <juykang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 13:50:03 by juykang           #+#    #+#             */
-/*   Updated: 2022/11/04 20:48:44 by juykang          ###   ########seoul.kr  */
+/*   Updated: 2022/11/05 14:56:17 by juykang          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,7 @@ int	check_arg(const char *str)
 	index = 0;
 	len = 0;
 	if (str[index] == '-' || str[index] == '+')
-	{
 		index++;
-		len--;
-	}
 	if (str[index] == '0')
 	{
 		len++;
